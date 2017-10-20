@@ -30,10 +30,12 @@ use AsyncPHP\Doorman\Manager\ProcessManager;
 use AsyncPHP\Doorman\Task\ProcessCallbackTask;
 
 $mytask = new ProcessCallbackTask(function () {
-    shell_exec('ls -al');
+    $ret = shell_exec('ls -al');
+    echo $ret;
 });
 
 $manager = new ProcessManager();
+$manager->setLogPath("/var/www/html"); //  디버깅용 로그(stdout.log, stderr.log)저장할 디렉토리경로명~
 
 for($i=0; $i < 10; $i++) {
     $manager->addTask($mytask);
@@ -45,3 +47,8 @@ while ($manager->tick()) {
 }
 ```
 
+- 작업로그확인
+```sh
+cat /var/www/html/stdout.log
+cat /var/www/html/stderr.log
+```
