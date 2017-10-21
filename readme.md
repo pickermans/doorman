@@ -52,3 +52,16 @@ while ($manager->tick()) {
 cat /var/www/html/stdout.log
 cat /var/www/html/stderr.log
 ```
+
+---
+
+# Uninstall
+
+- Doorman 패키지 삭제
+    - composer remove asyncphp/doorman
+
+- 콤포저 삭제
+    - rm -f /usr/local/bin/composer && rm -rf ~/.composer
+
+
+
