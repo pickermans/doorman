@@ -59,7 +59,7 @@ cat /var/www/html/stderr.log
 
 - Doorman 패키지 삭제
 
-    - composer remove asyncphp/doorman
+    - composer remove asyncphp/doorman
 
 - 콤포저 삭제
 
